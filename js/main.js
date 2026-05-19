@@ -1559,18 +1559,24 @@ System.out.println(
 
 }
 ];
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-const navList =
-document.getElementById("nav-list");
+const navList = document.getElementById("nav-list");
+const container = document.getElementById("topics-container");
 
-const container=
-document.getElementById(
-"topics-container"
-);
+if(!navList || !container){
+    console.error("No se encontró nav-list o topics-container");
+    return;
+}
 
 
-// GENERAR MENÚ LATERAL
+// LIMPIAR
+
+navList.innerHTML="";
+container.innerHTML="";
+
+
+// MENÚ LATERAL
 
 topics.forEach(topic=>{
 
@@ -1579,11 +1585,11 @@ navList.innerHTML += `
 <a href="#tema-${topic.id}"
 class="nav-link">
 
-<span class="nav-number">
+<div class="nav-number">
 
 ${topic.id}
 
-</span>
+</div>
 
 <span>
 
@@ -1599,7 +1605,7 @@ ${topic.title}
 
 
 
-// GENERAR TEMAS
+// TEMAS
 
 topics.forEach(topic=>{
 
@@ -1608,19 +1614,22 @@ container.innerHTML += `
 <section id="tema-${topic.id}"
 class="topic-section glass-card rounded-2xl p-8 mb-12">
 
-<h2 class="text-3xl font-bold text-white mb-6">
+<div class="topic-header">
+
+<h2 class="text-3xl font-bold text-white">
 
 ${topic.id}. ${topic.title}
 
 </h2>
 
+</div>
+
+
 ${topic.concept}
 
 
-${
-topic.examples ?
 
-`
+${topic.examples ? `
 
 <h3 class="text-2xl text-cyber-400 font-bold mt-10 mb-6">
 
@@ -1629,24 +1638,23 @@ topic.examples ?
 </h3>
 
 
-<div class="space-y-8">
+<div class="space-y-6">
 
 ${topic.examples.map(example=>`
 
 <div class="glass-card p-6 rounded-xl">
 
-<h4 class="text-xl text-white font-bold mb-2">
+<h4 class="text-xl text-white mb-3">
 
 ${example.title}
 
 </h4>
 
-<p class="text-gray-400 mb-4">
+<p class="text-gray-400 mb-5">
 
 ${example.description}
 
 </p>
-
 
 <div class="code-block">
 
@@ -1664,21 +1672,16 @@ ${example.code}
 
 </div>
 
-`
-
-:""
-}
+`:''}
 
 
 
-${
-topic.exercises ?
 
-`
+${topic.exercises ? `
 
 <h3 class="text-2xl text-red-400 font-bold mt-10 mb-6">
 
-🧩 Ejercicios Propuestos
+🧠 Ejercicios
 
 </h3>
 
@@ -1688,7 +1691,7 @@ ${topic.exercises.map(exercise=>`
 
 <div class="exercise-card">
 
-<h4 class="text-white font-bold mb-3">
+<h4 class="font-bold text-white mb-3">
 
 ${exercise.title}
 
@@ -1700,11 +1703,11 @@ ${exercise.description}
 
 </p>
 
-<span class="pending-badge">
+<div class="pending-badge">
 
 ${exercise.difficulty}
 
-</span>
+</div>
 
 </div>
 
@@ -1712,10 +1715,7 @@ ${exercise.difficulty}
 
 </div>
 
-`
-
-:""
-}
+`:''}
 
 </section>
 
@@ -1724,6 +1724,12 @@ ${exercise.difficulty}
 });
 
 
+// iconos
+
+if(typeof lucide!=="undefined"){
+
 lucide.createIcons();
+
+}
 
 });
