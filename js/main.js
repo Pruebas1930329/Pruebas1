@@ -1417,3 +1417,50 @@ const topics = [
                         <p class="text-xs text-gray-500">Don't Repeat Yourself — Evitar duplicación</p>
                     </div>
                     <div class="p-4 rounded-xl bg-cyber-900/
+
+                    }
+        ]
+    },
+    {
+    
+// Crear menú lateral
+const navList = document.getElementById("nav-list");
+
+topics.forEach(topic => {
+    navList.innerHTML += `
+    <a href="#tema-${topic.id}"
+       class="block px-4 py-3 rounded-lg text-gray-400 hover:bg-cyber-900/50 hover:text-cyber-300 transition">
+
+       ${topic.id}. ${topic.title}
+
+    </a>
+    `;
+});
+
+
+// Crear temas
+const container = document.getElementById("topics-container");
+
+topics.forEach(topic => {
+
+    container.innerHTML += `
+
+    <section id="tema-${topic.id}"
+    class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold text-white mb-6">
+
+            ${topic.id}. ${topic.title}
+
+        </h2>
+
+        ${topic.concept}
+
+    </section>
+
+    `;
+});
+
+
+// Activar iconos
+lucide.createIcons();
