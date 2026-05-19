@@ -1400,15 +1400,16 @@ const topics = [
         ]
     },
     {
-       id: 14,
+       {
+    id: 14,
     title: "Buenas Prácticas y Refactorización",
     icon: "sparkles",
     pending: false,
+
     concept: `
         <p class="text-gray-300 text-lg leading-relaxed mb-6">
-            Las <strong class="text-white">buenas prácticas de programación</strong> son técnicas y convenciones que permiten desarrollar software más ordenado, legible y fácil de mantener. 
-
-            La <strong class="text-white">refactorización</strong> consiste en mejorar la estructura interna del código sin cambiar lo que hace.
+            Las <strong class="text-white">buenas prácticas de programación</strong> son técnicas y convenciones que permiten desarrollar software más ordenado, legible y fácil de mantener.
+            La <strong class="text-white">refactorización</strong> consiste en mejorar la estructura interna del código sin cambiar su comportamiento.
         </p>
 
         <div class="diagram-box mb-6">
@@ -1433,7 +1434,6 @@ const topics = [
 
                 </div>
 
-
                 <div class="p-4 rounded-xl bg-cyber-900/50 border border-cyber-700/30 text-center">
 
                     <div class="text-2xl mb-2">🧹</div>
@@ -1447,7 +1447,6 @@ const topics = [
                     </p>
 
                 </div>
-
 
                 <div class="p-4 rounded-xl bg-cyber-900/50 border border-cyber-700/30 text-center">
 
@@ -1467,143 +1466,168 @@ const topics = [
 
         </div>
 
+        <ul class="concept-list">
+            <li>Usar nombres descriptivos para variables y métodos.</li>
+            <li>Evitar duplicación de código.</li>
+            <li>Crear métodos pequeños y reutilizables.</li>
+            <li>Eliminar estructuras innecesarias.</li>
+            <li>Utilizar herramientas como SonarLint y Checkstyle.</li>
+        </ul>
+    `,
 
-        <h3 class="text-xl font-bold text-cyber-400 mt-8 mb-4">
-        Ejemplo 1
-        </h3>
+    examples: [
 
-<div class="code-block">
-<pre><code>
-// Antes
+        {
+            title:"Variables descriptivas",
+            description:"Comparación entre un código poco legible y otro refactorizado usando nombres más claros.",
 
-int a=10;
-int b=5;
-int c=a+b;
+            code:`
 
+<span class="comment">// Antes</span>
 
-// Después
+<span class="keyword">int</span> a=<span class="number">10</span>;
+<span class="keyword">int</span> b=<span class="number">5</span>;
+<span class="keyword">int</span> c=a+b;
 
-int numeroA=10;
-int numeroB=5;
-int suma=numeroA+numeroB;
+<br>
 
-</code></pre>
-</div>
+<span class="comment">// Después</span>
 
+<span class="keyword">int</span> numeroA=<span class="number">10</span>;
+<span class="keyword">int</span> numeroB=<span class="number">5</span>;
+<span class="keyword">int</span> suma=numeroA+numeroB;
 
+`
+        },
 
-<h3 class="text-xl font-bold text-cyber-400 mt-8 mb-4">
-Ejemplo 2
-</h3>
+        {
+            title:"Eliminar redundancia",
+            description:"Refactorización eliminando comparaciones innecesarias.",
 
-<div class="code-block">
-<pre><code>
+            code:`
 
-// Antes
+<span class="comment">// Antes</span>
 
-if(x==true){
+<span class="keyword">if</span>(x==<span class="keyword">true</span>){
 
-System.out.println("Acceso");
+System.out.println(
+<span class="string">"Acceso"</span>
+);
 
 }
 
+<br>
 
-// Después
+<span class="comment">// Después</span>
 
-if(x){
+<span class="keyword">if</span>(x){
 
-System.out.println("Acceso");
+System.out.println(
+<span class="string">"Acceso"</span>
+);
 
 }
 
-</code></pre>
-</div>
+`
+        }
 
+    ],
 
+    exercises:[
 
+        {
 
-<h3 class="text-xl font-bold text-red-400 mt-8 mb-4">
-Ejercicio 1
-</h3>
+            title:"Refactorizar variables",
 
-<div class="exercise-box">
+            description:"Refactoriza el siguiente código usando nombres descriptivos para las variables:",
 
-<p class="text-gray-300">
+            difficulty:"Básico"
 
-Refactoriza el siguiente código usando nombres descriptivos:
+        },
 
-</p>
+        {
 
-<div class="code-block mt-4">
+            title:"Eliminar redundancia",
 
-<pre><code>
+            description:"Mejora este código evitando información repetida y aplicando DRY: String nombre1='Ana'; String nombre2='Ana';",
 
-int x=7;
-int y=9;
-int z=x*y;
+            difficulty:"Intermedio"
 
-</code></pre>
+        }
 
-</div>
-
-</div>
-
-
-
-
-<h3 class="text-xl font-bold text-red-400 mt-8 mb-4">
-Ejercicio 2
-</h3>
-
-<div class="exercise-box">
-
-<p class="text-gray-300">
-
-Mejora este fragmento eliminando redundancia:
-
-</p>
-
-<div class="code-block mt-4">
-
-<pre><code>
-
-String nombre1="Ana";
-String nombre2="Ana";
-
-</code></pre>
-
-</div>
-
-</div>
+    ]
 
 }
 ];
-
 document.addEventListener('DOMContentLoaded',()=>{
 
 const navList =
 document.getElementById("nav-list");
+
+const container=
+document.getElementById(
+"topics-container"
+);
+
+
+// GENERAR MENÚ LATERAL
+
+topics.forEach(topic=>{
+
+navList.innerHTML += `
+
+<a href="#tema-${topic.id}"
+class="nav-link">
+
+<span class="nav-number">
+
+${topic.id}
+
+</span>
+
+<span>
+
+${topic.title}
+
+</span>
+
+</a>
+
+`;
+
+});
+
+
+
+// GENERAR TEMAS
 
 topics.forEach(topic=>{
 
 container.innerHTML += `
 
 <section id="tema-${topic.id}"
-class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8 mb-10">
+class="topic-section glass-card rounded-2xl p-8 mb-12">
 
-<h2 class="text-3xl font-bold mb-6">
+<h2 class="text-3xl font-bold text-white mb-6">
+
 ${topic.id}. ${topic.title}
+
 </h2>
 
 ${topic.concept}
 
+
 ${
 topic.examples ?
+
 `
 
 <h3 class="text-2xl text-cyber-400 font-bold mt-10 mb-6">
+
 💻 Ejemplos
+
 </h3>
+
 
 <div class="space-y-8">
 
@@ -1612,17 +1636,24 @@ ${topic.examples.map(example=>`
 <div class="glass-card p-6 rounded-xl">
 
 <h4 class="text-xl text-white font-bold mb-2">
+
 ${example.title}
+
 </h4>
 
 <p class="text-gray-400 mb-4">
+
 ${example.description}
+
 </p>
+
 
 <div class="code-block">
 
 <div class="code-content">
+
 ${example.code}
+
 </div>
 
 </div>
@@ -1634,15 +1665,21 @@ ${example.code}
 </div>
 
 `
-: ""
+
+:""
 }
+
+
 
 ${
 topic.exercises ?
+
 `
 
 <h3 class="text-2xl text-red-400 font-bold mt-10 mb-6">
-🧠 Ejercicios propuestos
+
+🧩 Ejercicios Propuestos
+
 </h3>
 
 <div class="grid md:grid-cols-2 gap-6">
@@ -1652,16 +1689,19 @@ ${topic.exercises.map(exercise=>`
 <div class="exercise-card">
 
 <h4 class="text-white font-bold mb-3">
+
 ${exercise.title}
+
 </h4>
 
 <p class="text-gray-400 mb-4">
+
 ${exercise.description}
+
 </p>
 
-<span class="text-cyan-400 text-sm">
+<span class="pending-badge">
 
-Nivel:
 ${exercise.difficulty}
 
 </span>
@@ -1673,6 +1713,7 @@ ${exercise.difficulty}
 </div>
 
 `
+
 :""
 }
 
@@ -1681,6 +1722,7 @@ ${exercise.difficulty}
 `;
 
 });
+
 
 lucide.createIcons();
 
