@@ -1400,7 +1400,7 @@ const topics = [
         ]
     },
     {
-{
+        
     id: 14,
     title: "Buenas Prácticas y Refactorización",
     icon: "sparkles",
@@ -1549,9 +1549,6 @@ int z=x*y;
 
 </div>
 
-
-
-
 <h3 class="text-xl font-bold text-red-400 mt-8 mb-4">
 Ejercicio 2
 </h3>
@@ -1580,50 +1577,23 @@ String nombre2="Ana";
 `
 }
 ];
-
 document.addEventListener('DOMContentLoaded',()=>{
 
-const navList =
-document.getElementById("nav-list");
+const nav=document.getElementById('nav-list');
+const container=document.getElementById('topics-container');
 
 topics.forEach(topic=>{
 
-navList.innerHTML+=`
-
-<a href="#tema-${topic.id}"
-class="block px-4 py-3 rounded-lg">
-
+nav.innerHTML+=`
+<a href="#tema-${topic.id}" class="nav-link">
 ${topic.id}. ${topic.title}
-
-</a>
-
-`;
-
-});
-
-
-const container=
-document.getElementById(
-"topics-container");
-
-topics.forEach(topic=>{
+</a>`;
 
 container.innerHTML+=`
-
-<section id="tema-${topic.id}"
-class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8">
-
-<h2 class="text-3xl font-bold mb-6">
-
-${topic.id}. ${topic.title}
-
-</h2>
-
+<section id="tema-${topic.id}" class="topic-card">
+<h2>${topic.id}. ${topic.title}</h2>
 ${topic.concept}
-
-</section>
-
-`;
+</section>`;
 
 });
 
