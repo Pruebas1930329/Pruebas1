@@ -1628,14 +1628,11 @@ ${topic.concept}
 
 
 
-${topic.examples ? `
+${Array.isArray(topic.examples) ? `
 
 <h3 class="text-2xl text-cyber-400 font-bold mt-10 mb-6">
-
 💻 Ejemplos
-
 </h3>
-
 
 <div class="space-y-6">
 
@@ -1644,9 +1641,7 @@ ${topic.examples.map(example=>`
 <div class="glass-card p-6 rounded-xl">
 
 <h4 class="text-xl text-white mb-3">
-
 ${example.title}
-
 </h4>
 
 <p class="text-gray-400 mb-5">
@@ -1674,14 +1669,10 @@ ${example.code}
 `:''}
 
 
-
-
-${topic.exercises ? `
-
+${Array.isArray(topic.exercises) ? `
 <h3 class="text-2xl text-red-400 font-bold mt-10 mb-6">
 
 🧠 Ejercicios
-
 </h3>
 
 <div class="grid md:grid-cols-2 gap-6">
