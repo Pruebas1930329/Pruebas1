@@ -1400,7 +1400,6 @@ const topics = [
         ]
     },
     {
-       {
     id: 14,
     title: "Buenas Prácticas y Refactorización",
     icon: "sparkles",
