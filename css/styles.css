@@ -399,3 +399,18 @@ body {
     z-index: 9999;
     transition: width 0.1s linear;
 }
+
+#topics-container{
+display:block !important;
+visibility:visible !important;
+opacity:1 !important;
+height:auto !important;
+}
+
+.topic-card{
+display:block !important;
+border:2px solid cyan;
+margin:20px;
+padding:20px;
+background:#12253d;
+}
