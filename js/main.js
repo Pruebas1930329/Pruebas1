@@ -1605,28 +1605,28 @@ ${topic.title}
 
 
 // TEMAS
+topics.forEach(topic => {
 
-topics.forEach(topic=>{
+const section = document.createElement("section");
 
-container.innerHTML += `
+section.id = `tema-${topic.id}`;
 
-<section id="tema-${topic.id}"
-class="topic-section glass-card rounded-2xl p-8 mb-12">
+section.className =
+"topic-section glass-card rounded-2xl p-8 mb-12";
+
+section.innerHTML = `
 
 <div class="topic-header">
 
 <h2 class="text-3xl font-bold text-white">
-
 ${topic.id}. ${topic.title}
-
 </h2>
 
 </div>
 
-
-${topic.concept}
-
-
+${typeof topic.concept === "string"
+? topic.concept
+: ""}
 
 ${Array.isArray(topic.examples) ? `
 
@@ -1636,26 +1636,22 @@ ${Array.isArray(topic.examples) ? `
 
 <div class="space-y-6">
 
-${topic.examples.map(example=>`
+${topic.examples.map(example => `
 
 <div class="glass-card p-6 rounded-xl">
 
 <h4 class="text-xl text-white mb-3">
-${example.title}
+${example.title || ""}
 </h4>
 
 <p class="text-gray-400 mb-5">
-
-${example.description}
-
+${example.description || ""}
 </p>
 
 <div class="code-block">
 
 <div class="code-content">
-
-${example.code}
-
+${example.code || ""}
 </div>
 
 </div>
@@ -1666,37 +1662,30 @@ ${example.code}
 
 </div>
 
-`:''}
-
+` : ""}
 
 ${Array.isArray(topic.exercises) ? `
-<h3 class="text-2xl text-red-400 font-bold mt-10 mb-6">
 
+<h3 class="text-2xl text-red-400 font-bold mt-10 mb-6">
 🧠 Ejercicios
 </h3>
 
 <div class="grid md:grid-cols-2 gap-6">
 
-${topic.exercises.map(exercise=>`
+${topic.exercises.map(exercise => `
 
 <div class="exercise-card">
 
 <h4 class="font-bold text-white mb-3">
-
-${exercise.title}
-
+${exercise.title || ""}
 </h4>
 
 <p class="text-gray-400 mb-4">
-
-${exercise.description}
-
+${exercise.description || ""}
 </p>
 
 <div class="pending-badge">
-
-${exercise.difficulty}
-
+${exercise.difficulty || ""}
 </div>
 
 </div>
@@ -1705,11 +1694,11 @@ ${exercise.difficulty}
 
 </div>
 
-`:''}
-
-</section>
+` : ""}
 
 `;
+
+container.appendChild(section);
 
 });
 
