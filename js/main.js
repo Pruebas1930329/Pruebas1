@@ -481,9 +481,8 @@ const topics = [
         title: "Tema 5 — Pendiente",
         icon: "clock",
         pending: true,
-        concept: `<div class="text-center py-16"><div class="text-6xl mb-4">⏳</div><h3 class="text-2xl font-bold text-white mb-2">Contenido en preparación</h3><p class="text-gray-400">Este tema será publicado próximamente por el equipo del curso.</p></div>`,
-        examples: [],
-        exercises: []
+        concept: `<div class="text-center py-16"><div class="text-6xl mb-4">⏳</div><h3 class="text-2xl font-bold text-white mb-2">Contenido en preparación</h3><p class="text-gray-400">Este tema será publicado próximamente.</p></div>`,
+        
     },
     {
         id: 6,
@@ -1005,9 +1004,8 @@ const topics = [
         title: "Tema 10 — Pendiente",
         icon: "clock",
         pending: true,
-        concept: `<div class="text-center py-16"><div class="text-6xl mb-4">⏳</div><h3 class="text-2xl font-bold text-white mb-2">Contenido en preparación</h3><p class="text-gray-400">Este tema será publicado próximamente por el equipo del curso.</p></div>`,
-        examples: [],
-        exercises: []
+        concept: `<div class="text-center py-16"><div class="text-6xl mb-4">⏳</div><h3 class="text-2xl font-bold text-white mb-2">Contenido en preparación</h3><p class="text-gray-400">Este tema será publicado próximamente.</p></div>`,
+
     },
     {
         id: 11,
