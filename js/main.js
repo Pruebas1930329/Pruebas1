@@ -1400,67 +1400,233 @@ const topics = [
         ]
     },
     {
-        id: 14,
-        title: "Buenas Prácticas y Refactorización",
-        icon: "sparkles",
-        pending: false,
-        concept: `
-            <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                Las <strong class="text-white">buenas prácticas de programación</strong> son convenciones y técnicas que mejoran la <strong class="text-cyber-400">legibilidad</strong>, <strong class="text-cyber-400">mantenibilidad</strong> y <strong class="text-cyber-400">calidad</strong> del código. La <strong class="text-white">refactorización</strong> es el proceso de reestructurar código existente sin cambiar su comportamiento externo, para hacerlo más limpio y eficiente.
-            </p>
-            <div class="diagram-box mb-6">
-                <div class="diagram-title">Principios Clave</div>
-                <div class="grid md:grid-cols-3 gap-4 mt-4">
-                    <div class="p-4 rounded-xl bg-cyber-900/50 border border-cyber-700/30 text-center">
-                        <div class="text-2xl mb-2">🎯</div>
-                        <div class="text-cyber-400 font-bold mb-1 text-sm">DRY</div>
-                        <p class="text-xs text-gray-500">Don't Repeat Yourself — Evitar duplicación</p>
+{
+    id: 14,
+    title: "Buenas Prácticas y Refactorización",
+    icon: "sparkles",
+    pending: false,
+    concept: `
+        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            Las <strong class="text-white">buenas prácticas de programación</strong> son técnicas y convenciones que permiten desarrollar software más ordenado, legible y fácil de mantener. 
+
+            La <strong class="text-white">refactorización</strong> consiste en mejorar la estructura interna del código sin cambiar lo que hace.
+        </p>
+
+        <div class="diagram-box mb-6">
+
+            <div class="diagram-title">
+                Principios Clave
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mt-4">
+
+                <div class="p-4 rounded-xl bg-cyber-900/50 border border-cyber-700/30 text-center">
+
+                    <div class="text-2xl mb-2">🎯</div>
+
+                    <div class="text-cyber-400 font-bold mb-1 text-sm">
+                        DRY
                     </div>
-                    <div class="p-4 rounded-xl bg-cyber-900/
 
-                    }
-        ]
-    },
-    {
-    
-// Crear menú lateral
-const navList = document.getElementById("nav-list");
+                    <p class="text-xs text-gray-500">
+                        Don't Repeat Yourself. Evitar duplicación.
+                    </p>
 
-topics.forEach(topic => {
-    navList.innerHTML += `
-    <a href="#tema-${topic.id}"
-       class="block px-4 py-3 rounded-lg text-gray-400 hover:bg-cyber-900/50 hover:text-cyber-300 transition">
+                </div>
 
-       ${topic.id}. ${topic.title}
 
-    </a>
-    `;
+                <div class="p-4 rounded-xl bg-cyber-900/50 border border-cyber-700/30 text-center">
+
+                    <div class="text-2xl mb-2">🧹</div>
+
+                    <div class="text-cyber-400 font-bold mb-1 text-sm">
+                        Código Limpio
+                    </div>
+
+                    <p class="text-xs text-gray-500">
+                        Variables y métodos descriptivos.
+                    </p>
+
+                </div>
+
+
+                <div class="p-4 rounded-xl bg-cyber-900/50 border border-cyber-700/30 text-center">
+
+                    <div class="text-2xl mb-2">⚡</div>
+
+                    <div class="text-cyber-400 font-bold mb-1 text-sm">
+                        Refactorización
+                    </div>
+
+                    <p class="text-xs text-gray-500">
+                        Mejorar estructura sin alterar comportamiento.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h3 class="text-xl font-bold text-cyber-400 mt-8 mb-4">
+        Ejemplo 1
+        </h3>
+
+<div class="code-block">
+<pre><code>
+// Antes
+
+int a=10;
+int b=5;
+int c=a+b;
+
+
+// Después
+
+int numeroA=10;
+int numeroB=5;
+int suma=numeroA+numeroB;
+
+</code></pre>
+</div>
+
+
+
+<h3 class="text-xl font-bold text-cyber-400 mt-8 mb-4">
+Ejemplo 2
+</h3>
+
+<div class="code-block">
+<pre><code>
+
+// Antes
+
+if(x==true){
+
+System.out.println("Acceso");
+
+}
+
+
+// Después
+
+if(x){
+
+System.out.println("Acceso");
+
+}
+
+</code></pre>
+</div>
+
+
+
+
+<h3 class="text-xl font-bold text-red-400 mt-8 mb-4">
+Ejercicio 1
+</h3>
+
+<div class="exercise-box">
+
+<p class="text-gray-300">
+
+Refactoriza el siguiente código usando nombres descriptivos:
+
+</p>
+
+<div class="code-block mt-4">
+
+<pre><code>
+
+int x=7;
+int y=9;
+int z=x*y;
+
+</code></pre>
+
+</div>
+
+</div>
+
+
+
+
+<h3 class="text-xl font-bold text-red-400 mt-8 mb-4">
+Ejercicio 2
+</h3>
+
+<div class="exercise-box">
+
+<p class="text-gray-300">
+
+Mejora este fragmento eliminando redundancia:
+
+</p>
+
+<div class="code-block mt-4">
+
+<pre><code>
+
+String nombre1="Ana";
+String nombre2="Ana";
+
+</code></pre>
+
+</div>
+
+</div>
+
+`
+}
+];
+
+document.addEventListener('DOMContentLoaded',()=>{
+
+const navList =
+document.getElementById("nav-list");
+
+topics.forEach(topic=>{
+
+navList.innerHTML+=`
+
+<a href="#tema-${topic.id}"
+class="block px-4 py-3 rounded-lg">
+
+${topic.id}. ${topic.title}
+
+</a>
+
+`;
+
 });
 
 
-// Crear temas
-const container = document.getElementById("topics-container");
+const container=
+document.getElementById(
+"topics-container");
 
-topics.forEach(topic => {
+topics.forEach(topic=>{
 
-    container.innerHTML += `
+container.innerHTML+=`
 
-    <section id="tema-${topic.id}"
-    class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8">
+<section id="tema-${topic.id}"
+class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8">
 
-        <h2 class="text-3xl font-bold text-white mb-6">
+<h2 class="text-3xl font-bold mb-6">
 
-            ${topic.id}. ${topic.title}
+${topic.id}. ${topic.title}
 
-        </h2>
+</h2>
 
-        ${topic.concept}
+${topic.concept}
 
-    </section>
+</section>
 
-    `;
+`;
+
 });
 
-
-// Activar iconos
 lucide.createIcons();
+
+});
