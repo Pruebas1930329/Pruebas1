@@ -1123,12 +1123,12 @@ const topics = [
         exercises: [
             {
                 title: "Validador de edad con excepción propia",
-                description": "Crea una excepción personalizada llamada EdadInvalidaException que extienda de IllegalArgumentException. Luego crea una clase RegistroCivil con método registrarPersona(String nombre, int edad) que lance esta excepción si la edad es menor a 0 o mayor a 120. Maneja la excepción con try-catch mostrando un mensaje amigable.",
+                description: "Crea una excepción personalizada llamada EdadInvalidaException que extienda de IllegalArgumentException. Luego crea una clase RegistroCivil con método registrarPersona(String nombre, int edad) que lance esta excepción si la edad es menor a 0 o mayor a 120. Maneja la excepción con try-catch mostrando un mensaje amigable.",
                 difficulty: "Intermedio"
             },
             {
                 title: "Lector de números con finally",
-                description": "Escribe un programa que lea 5 números enteros del teclado usando Scanner. Cada número debe ser validado: si hay una InputMismatchException (no es entero) debe mostrar 'Entrada inválida' y continuar con el siguiente. Usa un bloque finally para garantizar que el Scanner se cierre correctamente, incluso si ocurre una excepción inesperada.",
+                description: "Escribe un programa que lea 5 números enteros del teclado usando Scanner. Cada número debe ser validado: si hay una InputMismatchException (no es entero) debe mostrar 'Entrada inválida' y continuar con el siguiente. Usa un bloque finally para garantizar que el Scanner se cierre correctamente, incluso si ocurre una excepción inesperada.",
                 difficulty: "Avanzado"
             }
         ]
@@ -1256,7 +1256,7 @@ const topics = [
             },
             {
                 title: "Eliminador de duplicados y contador de frecuencia",
-                description": "Escribe un programa que reciba un array de strings y: a) Use un HashSet para mostrar las palabras sin duplicados, b) Use un HashMap para contar la frecuencia de cada palabra, c) Use un TreeSet para mostrar las palabras ordenadas alfabéticamente. Prueba con: {\"java\", \"python\", \"java\", \"c++\", \"java\", \"python\", \"go\"}.",
+                description: "Escribe un programa que reciba un array de strings y: a) Use un HashSet para mostrar las palabras sin duplicados, b) Use un HashMap para contar la frecuencia de cada palabra, c) Use un TreeSet para mostrar las palabras ordenadas alfabéticamente. Prueba con: {\"java\", \"python\", \"java\", \"c++\", \"java\", \"python\", \"go\"}.",
                 difficulty: "Intermedio"
             }
         ]
@@ -1389,18 +1389,17 @@ const topics = [
         exercises: [
             {
                 title: "Registro de contactos en .txt",
-                description": "Crea un programa que permita registrar contactos (nombre, teléfono, email) y guardarlos en un archivo contactos.txt. El programa debe leer el archivo al iniciar (si existe) para cargar contactos previos, y mostrar un menú por consola con opciones: 1) Agregar contacto, 2) Buscar por nombre, 3) Mostrar todos, 4) Guardar y salir. Cada contacto debe guardarse en una línea separada con formato nombre|telefono|email.",
+                description: "Crea un programa que permita registrar contactos (nombre, teléfono, email) y guardarlos en un archivo contactos.txt. El programa debe leer el archivo al iniciar (si existe) para cargar contactos previos, y mostrar un menú por consola con opciones: 1) Agregar contacto, 2) Buscar por nombre, 3) Mostrar todos, 4) Guardar y salir. Cada contacto debe guardarse en una línea separada con formato nombre|telefono|email.",
                 difficulty: "Intermedio"
             },
             {
                 title: "Analizador de ventas en CSV",
-                description": "Escribe un programa que lea un archivo ventas.csv con columnas: producto,cantidad,precioUnitario. El programa debe: a) Calcular el total de ventas general, b) Encontrar el producto más vendido (mayor cantidad), c) Escribir un archivo resumen_ventas.txt con estos resultados. Maneja las excepciones de archivo no encontrado y formato incorrecto.",
+                description: "Escribe un programa que lea un archivo ventas.csv con columnas: producto,cantidad,precioUnitario. El programa debe: a) Calcular el total de ventas general, b) Encontrar el producto más vendido (mayor cantidad), c) Escribir un archivo resumen_ventas.txt con estos resultados. Maneja las excepciones de archivo no encontrado y formato incorrecto.",
                 difficulty: "Avanzado"
             }
         ]
     },
     {
-{
     id: 14,
     title: "Buenas Prácticas y Refactorización",
     icon: "sparkles",
