@@ -414,3 +414,9 @@ margin:20px;
 padding:20px;
 background:#12253d;
 }
+
+.topic-section {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
