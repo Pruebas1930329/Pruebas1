@@ -1400,7 +1400,7 @@ const topics = [
         ]
     },
     {
-    id: 14,
+       id: 14,
     title: "Buenas Prácticas y Refactorización",
     icon: "sparkles",
     pending: false,
@@ -1576,7 +1576,6 @@ String nombre2="Ana";
 
 </div>
 
-`
 }
 ];
 
