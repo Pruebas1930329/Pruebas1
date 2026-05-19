@@ -148,6 +148,7 @@ body {
     font-size: 0.85rem;
     line-height: 1.7;
     color: #c9d1d9;
+    white-space: pre; 
 }
 
 .code-content .keyword { color: #ff7b72; }
