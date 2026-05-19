@@ -1586,38 +1586,95 @@ document.getElementById("nav-list");
 
 topics.forEach(topic=>{
 
-navList.innerHTML+=`
-
-<a href="#tema-${topic.id}"
-class="block px-4 py-3 rounded-lg">
-
-${topic.id}. ${topic.title}
-
-</a>
-
-`;
-
-});
-
-
-const container=
-document.getElementById(
-"topics-container");
-
-topics.forEach(topic=>{
-
-container.innerHTML+=`
+container.innerHTML += `
 
 <section id="tema-${topic.id}"
-class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8">
+class="bg-cyber-900/20 border border-cyber-800/50 rounded-2xl p-8 mb-10">
 
 <h2 class="text-3xl font-bold mb-6">
-
 ${topic.id}. ${topic.title}
-
 </h2>
 
 ${topic.concept}
+
+${
+topic.examples ?
+`
+
+<h3 class="text-2xl text-cyber-400 font-bold mt-10 mb-6">
+💻 Ejemplos
+</h3>
+
+<div class="space-y-8">
+
+${topic.examples.map(example=>`
+
+<div class="glass-card p-6 rounded-xl">
+
+<h4 class="text-xl text-white font-bold mb-2">
+${example.title}
+</h4>
+
+<p class="text-gray-400 mb-4">
+${example.description}
+</p>
+
+<div class="code-block">
+
+<div class="code-content">
+${example.code}
+</div>
+
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`
+: ""
+}
+
+${
+topic.exercises ?
+`
+
+<h3 class="text-2xl text-red-400 font-bold mt-10 mb-6">
+🧠 Ejercicios propuestos
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+${topic.exercises.map(exercise=>`
+
+<div class="exercise-card">
+
+<h4 class="text-white font-bold mb-3">
+${exercise.title}
+</h4>
+
+<p class="text-gray-400 mb-4">
+${exercise.description}
+</p>
+
+<span class="text-cyan-400 text-sm">
+
+Nivel:
+${exercise.difficulty}
+
+</span>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`
+:""
+}
 
 </section>
 
