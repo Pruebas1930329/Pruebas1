@@ -624,12 +624,12 @@ function renderTopics() {
             </p>
 
             <div class="grid md:grid-cols-2 gap-6 mb-8">
-                ${topic.examples.map(ex => `
+                ${topic.examples ? topic.examples.map(ex => `
                     <div class="example-box bg-black/40 p-5 border border-neon-green/30">
                         <h3 class="text-cyber-400 font-semibold mb-3">Ejemplo: ${ex.desc}</h3>
                         <pre><code>${ex.code}</code></pre>
                     </div>
-                `).join('')}
+                `).join('') : ''}
             </div>
 
             <!-- Botón Plegable -->
@@ -640,12 +640,12 @@ function renderTopics() {
             <!-- Contenedor Plegable -->
             <div class="exercise-content">
                 <div class="space-y-4">
-                    ${topic.exercises.map( (exe, idx) => `
+                    ${topic.exercises ? topic.exercises.map( (exe, idx) => `
                         <div class="bg-black/50 p-4 border-l-2 border-neon-green">
                             <p class="text-sm mb-2 font-medium">${idx + 1}. ${exe.instruction}</p>
                             <code class="text-xs italic">${exe.codeChallenge}</code>
                         </div>
-                    `).join('')}
+                   `).join('') : ''}
                 </div>
             </div>
         </section>
