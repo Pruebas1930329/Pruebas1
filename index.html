@@ -1,75 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>POO en Java</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
-        rel="stylesheet">
-
+    <title>POO Java - Academia Retro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="background-grid"></div>
-    <div class="glow top"></div>
-    <div class="glow bottom"></div>
-    <div class="background-grid"></div>
+    <div class="container">
+        <header>
+            <h1 id="main-title"></h1><span class="cursor">_</span>
+            <p class="subtitle">[ TERMINAL DE DOCUMENTACIÓN - SEMESTRE 2024 ]</p>
+        </header>
 
-    <header class="hero">
+        <main id="main-content">
+            <!-- Los temas se cargan dinámicamente desde el JS -->
+        </main>
 
-<h1>
-PROGRAMACIÓN ORIENTADA A OBJETOS
-EN JAVA
-</h1>
-
-<p>
-14 temas interactivos • ejemplos reales • ejercicios evaluables • arquitectura orientada a objetos
-</p>
-
-<div class="hero-stats">
-
-<div class="glass-card">
-<h2>14</h2>
-<span>TEMAS</span>
+        <footer>
+            <p>&copy; 2024 Equipo de Desarrollo POO - Proyecto Académico</p>
+        </footer>
     </div>
 
-    <div class="glass-card">
-    <h2>28</h2>
-    <span>EJEMPLOS</span>
-    </div>
-    <div class="glass-card">
-    <h2>28</h2>
-    <span>EJERCICIOS</span>
-    </div>
-
-    </div>
-
-</header>
-    <main class="layout">
-
-        <aside class="sidebar glass-card">
-
-            <h2 class="sidebar-title">
-                TEMAS
-            </h2>
-
-            <nav id="nav-list"></nav>
-
-        </aside>
-
-        <section id="topics-container"></section>
-
-    </main>
-
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
-
 </html>
