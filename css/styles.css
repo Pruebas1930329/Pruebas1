@@ -135,20 +135,28 @@ header {
     width: 100%;
 }
 
-/* Asegurar que el título principal se vea bien centrado */
 #main-title {
+    font-size: 5rem; /* Ajusta este valor si lo quieres más grande */
+    color: var(--neon-green);
+    text-shadow: 0 0 20px var(--neon-green);
     display: inline-block;
-    font-size: 3rem;
     margin: 0;
+    text-transform: uppercase;
 }
 
-/* Estilo para el cursor parpadeante */
+/* El cursor que parpadea al final del texto */
 .cursor {
-    font-size: 3rem;
+    font-size: 5rem;
+    color: var(--neon-green);
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
 }
