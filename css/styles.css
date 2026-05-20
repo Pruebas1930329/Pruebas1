@@ -8,7 +8,7 @@
 body {
     /* Reemplaza 'tu-imagen.jpg' por la URL de tu imagen */
     background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
-                url('https://static.vecteezy.com/system/resources/thumbnails/001/806/688/original/binary-code-background-free-video.jpg') no-repeat center center fixed;
+                url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTc1NnR5dmp3NHd4OWM4ZDFjZG81aDBvczV2OGN1MjYwYTRsZ2ZpciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/12W5Sg2koWYnwA/giphy.gif') no-repeat center center fixed;
     background-size: cover;
     color: var(--neon-green) !important;
     font-family: 'VT323', monospace !important;
