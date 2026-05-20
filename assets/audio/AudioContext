@@ -1,0 +1,1 @@
+Los sonidos de "bip" se generan mediante código utilizando el AudioContext del navegador (Osciladores).
