@@ -183,11 +183,11 @@ const topics = [
     }
 ];
 
-// Función sugerida para renderizar este nuevo contenido extenso
 function renderTopics() {
     const container = document.getElementById('topics-container');
+    if (!container) return; // Verificación de seguridad
+
     container.innerHTML = topics.map(t => `
-        <!-- GRAN CAJA ENCAPSULADORA POR TEMA -->
         <article class="topic-container animate-fade-in-up">
             <h2 class="text-4xl mb-6">${t.title}</h2>
             
@@ -205,7 +205,6 @@ function renderTopics() {
                 `).join('')}
             </div>
 
-            <!-- BOTÓN DESPLEGABLE CON SONIDO -->
             <button class="exercise-toggle" onclick="handleExerciseToggle(this)">
                 [+] ACCEDER A EJERCICIOS_PROPUESTOS
             </button>
@@ -219,44 +218,38 @@ function renderTopics() {
             </div>
         </article>
     `).join('');
+
+    // Lucide debe ejecutarse AQUÍ, dentro de renderTopics pero después del innerHTML
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
-// Función para el Sonido de Bip y Despliegue
 function handleExerciseToggle(btn) {
-    // Generar sonido de Bip Retro (880Hz)
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
 
-        oscillator.type = 'square'; // Sonido retro/bit
+        oscillator.type = 'square';
         oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); 
-        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); // Volumen bajo
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
 
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
         oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.1); // Duración de 100ms
+        oscillator.stop(audioCtx.currentTime + 0.1);
     } catch (e) { console.log("Audio no soportado"); }
 
-    // Lógica de apertura/cierre
     const content = btn.nextElementSibling;
     content.classList.toggle('active');
     
-    // Cambiar texto del botón
-    if (content.classList.contains('active')) {
-        btn.innerText = "[-] CERRAR EJERCICIOS_PROPUESTOS";
-    } else {
-        btn.innerText = "[+] ACCEDER A EJERCICIOS_PROPUESTOS";
-    }
-}
-    // Reiniciar iconos de Lucide después de renderizar
-    if(window.lucide) lucide.createIcons();
+    btn.innerText = content.classList.contains('active') 
+        ? "[-] CERRAR EJERCICIOS_PROPUESTOS" 
+        : "[+] ACCEDER A EJERCICIOS_PROPUESTOS";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof renderTopics === 'function') {
-        renderTopics();
-    }
+    renderTopics();
 });
