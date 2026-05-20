@@ -1,4 +1,4 @@
-/* RESTAURACIÓN TOTAL: RETRO MATRIX GREEN */
+
 :root {
     --neon-green: #00ff41;
     --dark-green: #003b00;
@@ -6,7 +6,7 @@
 }
 
 body {
-    /* Reemplaza 'tu-imagen.jpg' por la URL de tu imagen */
+    
     background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
                 url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTc1NnR5dmp3NHd4OWM4ZDFjZG81aDBvczV2OGN1MjYwYTRsZ2ZpciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/12W5Sg2koWYnwA/giphy.gif') no-repeat center center fixed;
     background-size: cover;
@@ -17,7 +17,6 @@ body {
 }
 
 
-/* El efecto de "letras sueltas" (Partículas Matrix) */
 #particles {
     position: fixed;
     top: 0;
@@ -26,10 +25,10 @@ body {
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.8; /* Aumentado para que se vean bien las letras */
+    opacity: 0.8; 
 }
 
-/* Las Cajas Retro que desaparecieron */
+
 .topic-card {
     background: rgba(0, 17, 0, 0.9) !important;
     border: 2px solid var(--neon-green) !important;
@@ -40,7 +39,6 @@ body {
     z-index: 10;
 }
 
-/* Títulos con sombra de neón */
 h1, h2, h3 {
     color: var(--neon-green) !important;
     text-transform: uppercase;
@@ -54,7 +52,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Bloques de código con estilo de terminal vieja */
+
 pre, code {
     background: #000 !important;
     border: 1px dashed var(--neon-green) !important;
@@ -65,12 +63,11 @@ pre, code {
     overflow-x: auto;
 }
 
-/* Ajuste para que el contenido no flote */
 main {
     position: relative;
     z-index: 5;
 }
-/* Centrado y Título Gigante */
+
 main {
     max-width: 1000px;
     margin: 0 auto;
@@ -85,7 +82,7 @@ h1.hero-title {
     display: block;
 }
 
-/* La Gran Caja del Tema */
+
 .topic-container {
     border: 3px double var(--neon-green);
     margin-bottom: 60px;
@@ -94,7 +91,7 @@ h1.hero-title {
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
 }
 
-/* Panel Desplegable */
+
 .exercise-toggle {
     width: 100%;
     background: var(--dark-green);
@@ -109,7 +106,7 @@ h1.hero-title {
 }
 
 .exercise-content {
-    display: none; /* Se activa con JS */
+    display: none; 
     border: 1px dashed var(--neon-green);
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
@@ -118,25 +115,24 @@ h1.hero-title {
 .exercise-content.active {
     display: block;
 }
-/* Centrar todo el contenido en el contenedor principal */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra los elementos hijos horizontalmente */
+    align-items: center; 
 }
 
-/* Estilos para el Header */
 header {
-    text-align: center; /* Centra el texto del título y subtítulo */
+    text-align: center; 
     margin-bottom: 40px;
     width: 100%;
 }
 
 #main-title {
-    font-size: 5rem; /* Ajusta este valor si lo quieres más grande */
+    font-size: 5rem; 
     color: var(--neon-green);
     text-shadow: 0 0 20px var(--neon-green);
     display: inline-block;
@@ -144,7 +140,6 @@ header {
     text-transform: uppercase;
 }
 
-/* El cursor que parpadea al final del texto */
 .cursor {
     font-size: 5rem;
     color: var(--neon-green);
