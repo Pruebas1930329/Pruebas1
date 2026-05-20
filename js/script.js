@@ -185,7 +185,7 @@ const topics = [
 
 // Función sugerida para renderizar este nuevo contenido extenso
 function renderTopics() {
-    const container = document.getElementById('topics-container');
+    const container = document.getElementById('main-content'); 
     container.innerHTML = topics.map(topic => `
         <section id="tema-${topic.id}" class="bg-cyber-900/20 border border-cyber-700/30 rounded-2xl p-8 mb-12 shadow-2xl">
             <h2 class="text-3xl font-bold text-white mb-6 border-b border-cyber-500/30 pb-4">${topic.title}</h2>
@@ -223,5 +223,8 @@ function renderTopics() {
     if(window.lucide) lucide.createIcons();
 }
 
-// Ejecutar al cargar
-document.addEventListener('DOMContentLoaded', renderTopics);
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof renderTopics === 'function') {
+        renderTopics();
+    }
+});
