@@ -1,0 +1,3 @@
+- VT323: Fuente principal para el cuerpo del texto, títulos y botones.
+- Courier New: Definida como alternativa para bloques de código.
+- Preconnects: Utiliza fonts.googleapis.com y fonts.gstatic.com para optimizar la carga.
