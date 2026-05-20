@@ -215,51 +215,24 @@ public String toString(){
 {
     id: 5,
 
-    title: "Relaciones entre clases y asociaciones",
+    title: "Pendiente: tema 5",
 
-    concept: "Las relaciones entre clases permiten modelar cómo interactúan distintos objetos dentro de un sistema. La asociación representa una conexión lógica entre clases, mientras que la dependencia indica que una clase utiliza temporalmente otra.",
+    concept: "Este tema no aparece especificado dentro de las entradas suministradas por el curso. Se deja reservado para futuras actualizaciones o contenidos adicionales definidos por el docente.",
 
     examples: [
 
         {
-            desc: "Asociación entre clases:",
+            desc: "Tema pendiente de definición.",
 
-            code: `class Universidad {
-
-    Estudiante estudiante;
-
-}`
+            code: `// Sin contenido disponible`
         },
 
         {
-            desc: "Dependencia entre clases:",
+            desc: "Espacio reservado para ejemplos futuros.",
 
-            code: `void imprimir(Documento d){
-
-    d.mostrar();
-
-}`
+            code: `// Pendiente`
         }
-
-    ],
-
-    exercises: [
-
-        {
-            instruction: "Crea una relación entre una clase Casa y una clase Habitacion.",
-
-            codeChallenge: `class Casa {
-
-}`
-        },
-
-        {
-            instruction: "Crea una dependencia entre Usuario y Reporte.",
-
-            codeChallenge: `// Código aquí`
-        }
-
-    ]
+      ]
 },
 
 {
