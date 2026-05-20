@@ -185,40 +185,72 @@ const topics = [
 
 // Función sugerida para renderizar este nuevo contenido extenso
 function renderTopics() {
-    const container = document.getElementById('main-content'); 
-    container.innerHTML = topics.map(topic => `
-        <section id="tema-${topic.id}" class="bg-cyber-900/20 border border-cyber-700/30 rounded-2xl p-8 mb-12 shadow-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b border-cyber-500/30 pb-4">${topic.title}</h2>
+    const container = document.getElementById('topics-container');
+    container.innerHTML = topics.map(t => `
+        <!-- GRAN CAJA ENCAPSULADORA POR TEMA -->
+        <article class="topic-container animate-fade-in-up">
+            <h2 class="text-4xl mb-6">${t.title}</h2>
             
-            <p class="text-gray-300 leading-relaxed text-justify mb-8 text-lg">
-                ${topic.concept}
-            </p>
+            <div class="definition-section mb-8">
+                <span class="label">>> SISTEMA_DATA_CORE:</span>
+                <p class="text-2xl leading-relaxed">${t.concept}</p>
+            </div>
 
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                ${topic.examples.map(ex => `
-                    <div class="bg-black/40 rounded-xl p-5 border border-cyber-800/50">
-                        <h4 class="text-cyber-400 font-semibold mb-3">Ejemplo: ${ex.desc}</h4>
-                        <pre class="bg-gray-950 p-4 rounded text-sm overflow-x-auto text-green-400 font-mono"><code>${ex.code}</code></pre>
+            <div class="grid md:grid-cols-2 gap-6">
+                ${t.examples.map(ex => `
+                    <div class="card">
+                        <span class="label">// ${ex.desc}</span>
+                        <pre><code>${ex.code}</code></pre>
                     </div>
                 `).join('')}
             </div>
 
-            <div class="bg-cyber-500/5 rounded-xl p-6 border border-cyber-500/20">
-                <h4 class="text-white font-bold mb-4 flex items-center gap-2">
-                    <i data-lucide="edit-3" class="w-5 h-5 text-cyber-500"></i> Ejercicios de Codificación
-                </h4>
-                <div class="space-y-4">
-                    ${topic.exercises.map((exe, idx) => `
-                        <div class="bg-cyber-950/50 p-4 rounded-lg">
-                            <p class="text-sm text-gray-300 mb-2 font-medium">${idx + 1}. ${exe.instruction}</p>
-                            <code class="text-xs text-cyber-300 font-mono italic">${exe.codeChallenge}</code>
-                        </div>
-                    `).join('')}
-                </div>
+            <!-- BOTÓN DESPLEGABLE CON SONIDO -->
+            <button class="exercise-toggle" onclick="handleExerciseToggle(this)">
+                [+] ACCEDER A EJERCICIOS_PROPUESTOS
+            </button>
+            <div class="exercise-content">
+                ${t.exercises.map((exe, i) => `
+                    <div class="mb-4 border-b border-green-900 pb-2">
+                        <p class="text-green-200">EJERCICIO_0${i+1}: ${exe.instruction}</p>
+                        <code class="text-sm opacity-60">${exe.codeChallenge}</code>
+                    </div>
+                `).join('')}
             </div>
-        </section>
+        </article>
     `).join('');
+}
+
+// Función para el Sonido de Bip y Despliegue
+function handleExerciseToggle(btn) {
+    // Generar sonido de Bip Retro (880Hz)
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = 'square'; // Sonido retro/bit
+        oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); 
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); // Volumen bajo
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.1); // Duración de 100ms
+    } catch (e) { console.log("Audio no soportado"); }
+
+    // Lógica de apertura/cierre
+    const content = btn.nextElementSibling;
+    content.classList.toggle('active');
     
+    // Cambiar texto del botón
+    if (content.classList.contains('active')) {
+        btn.innerText = "[-] CERRAR EJERCICIOS_PROPUESTOS";
+    } else {
+        btn.innerText = "[+] ACCEDER A EJERCICIOS_PROPUESTOS";
+    }
+}
     // Reiniciar iconos de Lucide después de renderizar
     if(window.lucide) lucide.createIcons();
 }
