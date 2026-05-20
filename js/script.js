@@ -256,31 +256,34 @@ const topics = [{
 function renderTopics() {
     const container = document.getElementById('main-content');
     container.innerHTML = topics.map(topic => `
-        <section id="tema-${topic.id}" class="bg-cyber-900/20 border border-cyber-700/30 rounded-2xl p-8 mb-12 shadow-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b border-cyber-500/30 pb-4">${topic.title}</h2>
+        <section id="tema-${topic.id}" class="topic-card">
+            <h2 class="text-3xl font-bold mb-6">${topic.title}</h2>
             
-            <p class="text-gray-300 leading-relaxed text-justify mb-8 text-lg">
+            <p class="concept text-gray-300 leading-relaxed text-justify mb-8 text-lg">
                 ${topic.concept}
             </p>
 
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 ${topic.examples.map(ex => `
-                    <div class="bg-black/40 rounded-xl p-5 border border-cyber-800/50">
+                    <div class="example-box bg-black/40 p-5 border border-neon-green/30">
                         <h3 class="text-cyber-400 font-semibold mb-3">Ejemplo: ${ex.desc}</h3>
-                        <pre class="bg-gray-950 p-4 rounded text-sm overflow-x-auto text-green-400 font-mono"><code>${ex.code}</code></pre>
+                        <pre><code>${ex.code}</code></pre>
                     </div>
                 `).join('')}
             </div>
 
-            <div class="bg-cyber-500/5 rounded-xl p-6 border border-cyber-500/20">
-                <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                    <i data-lucide="edit-3" class="w-5 h-5 text-cyber-500"></i> Ejercicios de Codificación
-                </h3>
+            <!-- Botón Plegable -->
+            <button class="exercise-toggle">
+                <i data-lucide="edit-3" class="w-5 h-5"></i> Ejercicios de Codificación
+            </button>
+            
+            <!-- Contenedor Plegable -->
+            <div class="exercise-content">
                 <div class="space-y-4">
                     ${topic.exercises.map( (exe, idx) => `
-                        <div class="bg-cyber-950/50 p-4 rounded-lg">
-                            <p class="text-sm text-gray-300 mb-2 font-medium">${idx + 1}. ${exe.instruction}</p>
-                            <code class="text-xs text-cyber-300 font-mono italic">${exe.codeChallenge}</code>
+                        <div class="bg-black/50 p-4 border-l-2 border-neon-green">
+                            <p class="text-sm mb-2 font-medium">${idx + 1}. ${exe.instruction}</p>
+                            <code class="text-xs italic">${exe.codeChallenge}</code>
                         </div>
                     `).join('')}
                 </div>
@@ -288,18 +291,19 @@ function renderTopics() {
         </section>
     `).join('');
 
-    // Reiniciar iconos de Lucide después de renderizar
-    if (window.lucide)
-        lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof renderTopics === 'function') {
-        renderTopics();
-    }
+    renderTopics();
+});
+
+// Evento para plegar/desplegar
 document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('exercise-toggle')) {
-        const content = e.target.nextElementSibling;
+    // Buscamos el botón o cualquier elemento dentro de él (como el icono)
+    const btn = e.target.closest('.exercise-toggle');
+    if (btn) {
+        const content = btn.nextElementSibling;
         content.classList.toggle('active');
     }
 });
