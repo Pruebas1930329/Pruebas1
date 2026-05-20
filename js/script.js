@@ -1,7 +1,7 @@
 const topics = [{
     id: 1,
 
-    title: "Introducción a la la POO y entorno de desarrollo en Java",
+    title: "Introducción a la POO y entorno de desarrollo en Java",
 
     concept: "La Programación Orientada a Objetos (POO) es un paradigma que permite representar problemas reales mediante clases y objetos. Java implementa este paradigma utilizando herramientas como el JDK (Java Development Kit), encargado de compilar programas, y la JVM (Java Virtual Machine), responsable de ejecutar aplicaciones en cualquier sistema operativo. Los entornos de desarrollo como IntelliJ IDEA, Eclipse, NetBeans y VS Code facilitan la escritura, depuración y organización del código. Además, los paquetes permiten estructurar profesionalmente las clases y evitar conflictos entre nombres.",
 
