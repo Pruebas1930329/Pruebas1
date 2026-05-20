@@ -1,255 +1,691 @@
 const topics = [{
     id: 1,
-    title: "1. Clases y Objetos",
-    concept: "En Java, una Clase es el pilar fundamental del paradigma orientado a objetos. Actúa como un plano constructivo o 'blueprint' que define la estructura y el comportamiento de una entidad. Un Objeto, por su parte, es la manifestación física y concreta de ese plano en la memoria. Cuando instanciamos una clase usando la palabra clave 'new', Java reserva un espacio en el área de memoria conocida como Heap. Cada objeto mantiene su propia copia de los atributos definidos en la clase, permitiendo que existan múltiples instancias con estados totalmente independientes. Por ejemplo, una clase 'Persona' define que todos tienen un nombre, pero el objeto 'p1' puede llamarse 'Ana' y el 'p2' 'Luis'.",
-    examples: [{
-        desc: "Definición de atributos y métodos básicos:",
-        code: "public class Reloj {\n    String marca;\n    void sonarAlarma() {\n        System.out.println(\"Bip Bip!\");\n    }\n}"
-    }, {
-        desc: "Instanciación y acceso a miembros:",
-        code: "Reloj miReloj = new Reloj();\nmiReloj.marca = \"Casio\";\nmiReloj.sonarAlarma();"
-    }],
-    exercises: [{
-        instruction: "Crea una clase 'Laptop' con marca y un método 'procesar()'.",
-        codeChallenge: "public class Laptop {\n    // Escribe aquí\n}"
-    }, {
-        instruction: "Instancia dos laptops y asígnales marcas diferentes.",
-        codeChallenge: "// Código aquí"
-    }]
-}, {
+
+    title: "Introducción a la la POO y entorno de desarrollo en Java",
+
+    concept: "La Programación Orientada a Objetos (POO) es un paradigma que permite representar problemas reales mediante clases y objetos. Java implementa este paradigma utilizando herramientas como el JDK (Java Development Kit), encargado de compilar programas, y la JVM (Java Virtual Machine), responsable de ejecutar aplicaciones en cualquier sistema operativo. Los entornos de desarrollo como IntelliJ IDEA, Eclipse, NetBeans y VS Code facilitan la escritura, depuración y organización del código. Además, los paquetes permiten estructurar profesionalmente las clases y evitar conflictos entre nombres.",
+
+    examples: [
+
+        {
+            desc: "Primer programa en Java:",
+
+            code: `public class HolaMundo {
+
+    public static void main(String[] args){
+
+        System.out.println("Hola Mundo");
+
+    }
+
+}`
+        },
+
+        {
+            desc: "Uso de paquetes en Java:",
+
+            code: `package universidad.poo;
+
+public class Estudiante {
+
+    String nombre;
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea un programa que muestre la versión de Java instalada.",
+
+            codeChallenge: `// Código aquí`
+        },
+
+        {
+            instruction: "Crea un programa que solicite el nombre del usuario usando Scanner.",
+
+            codeChallenge: `// Código aquí`
+        }
+
+    ]
+},
+
+{
     id: 2,
-    title: "2. Encapsulamiento",
-    concept: "El encapsulamiento es el mecanismo de seguridad que protege los datos internos de un objeto. Se basa en el principio de ocultar la implementación y exponer solo una interfaz controlada. En Java, esto se logra marcando los atributos como 'private'. Para interactuar con estos datos, se utilizan métodos públicos: los 'Getters' (para leer) y 'Setters' (para escribir). Esto no es solo por estética; permite que la clase valide los datos. Por ejemplo, un setter de 'edad' puede impedir que se asigne un valor negativo, manteniendo la integridad del objeto en todo momento.",
-    examples: [{
-        desc: "Uso de private y métodos de acceso:",
-        code: "private double saldo;\npublic double getSaldo() {\n    return saldo;\n}"
-    }, {
-        desc: "Validación lógica en un Setter:",
-        code: "public void setEdad(int e) {\n    if(e > 0) this.edad = e;\n}"
-    }],
-    exercises: [{
-        instruction: "Crea un atributo privado 'nombre' con su Getter y Setter.",
-        codeChallenge: "private String nombre;\n// Implementa métodos"
-    }, {
-        instruction: "Implementa un Setter para 'precio' que rechace valores menores a 1.",
-        codeChallenge: "public void setPrecio(double p) { ... }"
-    }]
-}, {
+
+    title: "Clases y Objetos en Java",
+
+    concept: "Las clases son plantillas que definen atributos y métodos comunes para representar entidades del mundo real. Los objetos son instancias concretas creadas a partir de esas clases. Cada objeto posee su propio estado en memoria y puede ejecutar comportamientos definidos por la clase.",
+
+    examples: [
+
+        {
+            desc: "Definición básica de una clase:",
+
+            code: `public class Persona {
+
+    String nombre;
+    int edad;
+
+}`
+        },
+
+        {
+            desc: "Instanciación de objetos:",
+
+            code: `Persona p = new Persona();
+
+p.nombre = "Daniel";
+p.edad = 20;`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea una clase llamada 'Vehiculo' con atributos marca y modelo.",
+
+            codeChallenge: `public class Vehiculo {
+
+}`
+        },
+
+        {
+            instruction: "Instancia dos objetos diferentes de la clase Vehiculo.",
+
+            codeChallenge: `// Código aquí`
+        }
+
+    ]
+},
+
+{
     id: 3,
-    title: "3. Herencia",
-    concept: "La herencia permite crear jerarquías de clases donde una subclase adquiere automáticamente los atributos y métodos de una superclase. Se utiliza la palabra clave 'extends'. Esto promueve la reutilización masiva de código y establece una relación de tipo 'Es-Un' (un Perro es un Animal). Java solo permite la herencia simple de clases para evitar el 'diamante de la muerte' (ambigüedad), pero una clase puede tener una cadena larga de ancestros.",
-    examples: [{
-        desc: "Extensión de funcionalidad básica:",
-        code: "class Vehiculo { void mover() {} }\nclass Avion extends Vehiculo { void volar() {} }"
-    }, {
-        desc: "Acceso a miembros heredados:",
-        code: "Avion boeing = new Avion();\nboeing.mover(); // Heredado\nboeing.volar(); // Propio"
-    }],
-    exercises: [{
-        instruction: "Crea una subclase 'Gerente' que herede de 'Empleado'.",
-        codeChallenge: "public class Gerente extends Empleado { ... }"
-    }, {
-        instruction: "Añade un método 'gestionar()' exclusivo para la clase 'Gerente'.",
-        codeChallenge: "void gestionar() { ... }"
-    }]
-}, {
+
+    title: "Atributos, métodos y encapsulamiento",
+
+    concept: "El encapsulamiento consiste en proteger los datos internos de un objeto utilizando modificadores de acceso. En Java, los atributos suelen declararse como private y se accede a ellos mediante métodos Getter y Setter. Esto permite validar información y controlar el acceso a los datos.",
+
+    examples: [
+
+        {
+            desc: "Atributo privado y Getter:",
+
+            code: `private double saldo;
+
+public double getSaldo(){
+
+    return saldo;
+
+}`
+        },
+
+        {
+            desc: "Setter con validación:",
+
+            code: `public void setEdad(int edad){
+
+    if(edad > 0){
+
+        this.edad = edad;
+
+    }
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea un atributo privado llamado 'nombre' con su Getter y Setter.",
+
+            codeChallenge: `private String nombre;`
+        },
+
+        {
+            instruction: "Crea un Setter para precio que no permita valores negativos.",
+
+            codeChallenge: `public void setPrecio(double p){
+
+}`
+        }
+
+    ]
+},
+
+{
     id: 4,
-    title: "4. Polimorfismo",
-    concept: "El polimorfismo es la capacidad de un objeto de comportarse de diferentes maneras según el contexto. Principalmente se manifiesta cuando una referencia de la clase padre apunta a un objeto de la clase hija. Durante la ejecución, Java decide qué método ejecutar basándose en el tipo real del objeto, no en el tipo de la referencia. Esto permite crear sistemas altamente flexibles donde puedes tratar a una lista de diferentes animales como simples 'Animales' y pedirles que hagan sonido, y cada uno responderá según su especie.",
-    examples: [{
-        desc: "Referencia de superclase a objeto hijo:",
-        code: "Animal miPerro = new Perro();\nmiPerro.hacerSonido(); // Ejecuta ladrido"
-    }, {
-        desc: "Sobrescritura de métodos con @Override:",
-        code: "@Override\nvoid mover() {\n    System.out.println(\"Nandando...\");\n}"
-    }],
-    exercises: [{
-        instruction: "Crea una clase 'Circulo' que sobrescriba 'dibujar()' de 'Forma'.",
-        codeChallenge: "@Override\nvoid dibujar() { ... }"
-    }, {
-        instruction: "Declara una lista de 'Forma' y añade un 'Circulo' y un 'Cuadrado'.",
-        codeChallenge: "List<Forma> formas = new ArrayList<>();"
-    }]
-}, {
+
+    title: "Constructores y representación de objetos",
+
+    concept: "Los constructores son métodos especiales que inicializan objetos en el momento de su creación. No poseen tipo de retorno y deben tener el mismo nombre de la clase. El método toString() permite representar un objeto como texto, mientras que la sobrecarga permite definir múltiples constructores con diferentes parámetros.",
+
+    examples: [
+
+        {
+            desc: "Constructor parametrizado:",
+
+            code: `public Persona(String nombre){
+
+    this.nombre = nombre;
+
+}`
+        },
+
+        {
+            desc: "Método toString():",
+
+            code: `@Override
+
+public String toString(){
+
+    return nombre;
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea un constructor para una clase Libro que reciba título y autor.",
+
+            codeChallenge: `public Libro(String titulo, String autor){
+
+}`
+        },
+
+        {
+            instruction: "Sobrecarga el constructor de una clase Computador.",
+
+            codeChallenge: `public Computador(){
+
+}`
+        }
+
+    ]
+},
+
+{
     id: 5,
-    title: "5. Abstracción",
-    concept: "La abstracción consiste en capturar las características esenciales de un objeto omitiendo los detalles de implementación complejos. Se logra mediante clases abstractas (marcadas con 'abstract') que actúan como contratos incompletos. Una clase abstracta no puede ser instanciada directamente. Los métodos abstractos obligan a las subclases a proporcionar su propia lógica. Es ideal para definir conceptos generales como 'FiguraGeometrica', donde sabes que todas tienen un área, pero el cálculo específico depende de cada figura.",
-    examples: [{
-        desc: "Definición de clase y método abstracto:",
-        code: "abstract class Forma {\n    abstract double area();\n}"
-    }, {
-        desc: "Implementación obligatoria en subclase:",
-        code: "class Cuadrado extends Forma {\n    double area() { return lado * lado; }\n}"
-    }],
-    exercises: [{
-        instruction: "Crea una clase abstracta 'Instrumento' con el método 'tocar()'.",
-        codeChallenge: "abstract class Instrumento { ... }"
-    }, {
-        instruction: "Crea la clase 'Piano' que implemente el método 'tocar()'.",
-        codeChallenge: "class Piano extends Instrumento { ... }"
-    }]
-}, {
+
+    title: "Relaciones entre clases y asociaciones",
+
+    concept: "Las relaciones entre clases permiten modelar cómo interactúan distintos objetos dentro de un sistema. La asociación representa una conexión lógica entre clases, mientras que la dependencia indica que una clase utiliza temporalmente otra.",
+
+    examples: [
+
+        {
+            desc: "Asociación entre clases:",
+
+            code: `class Universidad {
+
+    Estudiante estudiante;
+
+}`
+        },
+
+        {
+            desc: "Dependencia entre clases:",
+
+            code: `void imprimir(Documento d){
+
+    d.mostrar();
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea una relación entre una clase Casa y una clase Habitacion.",
+
+            codeChallenge: `class Casa {
+
+}`
+        },
+
+        {
+            instruction: "Crea una dependencia entre Usuario y Reporte.",
+
+            codeChallenge: `// Código aquí`
+        }
+
+    ]
+},
+
+{
     id: 6,
-    title: "6. Interfaces",
-    concept: "Una interfaz es un contrato puro que define 'qué' debe hacer una clase, pero no 'cómo'. A diferencia de la herencia de clases, Java permite que una clase implemente múltiples interfaces, facilitando el diseño desacoplado. Todos los métodos en una interfaz son implícitamente públicos y abstractos (hasta Java 8). Son la base del diseño por componentes, permitiendo que objetos totalmente diferentes compartan comportamientos comunes como ser 'Clonable' o 'Comparable'.",
-    examples: [{
-        desc: "Definición de una interfaz de comportamiento:",
-        code: "interface Conectable {\n    void conectar();\n}"
-    }, {
-        desc: "Implementación múltiple de interfaces:",
-        code: "class SmartTV implements Conectable, Reproductor { ... }"
-    }],
-    exercises: [{
-        instruction: "Define una interfaz 'Nadador' con el método 'nadar()'.",
-        codeChallenge: "interface Nadador { ... }"
-    }, {
-        instruction: "Haz que la clase 'Delfin' implemente la interfaz 'Nadador'.",
-        codeChallenge: "class Delfin implements Nadador { ... }"
-    }]
-}, {
+
+    title: "Herencia en Java",
+
+    concept: "La herencia permite que una clase hija reutilice atributos y métodos de una clase padre mediante la palabra clave extends. También puede utilizarse super() para acceder a miembros o constructores de la superclase.",
+
+    examples: [
+
+        {
+            desc: "Herencia simple:",
+
+            code: `class Animal {
+
+    void comer(){}
+
+}
+
+class Perro extends Animal {
+
+}`
+        },
+
+        {
+            desc: "Uso de super():",
+
+            code: `public Perro(){
+
+    super();
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea una clase Gerente que herede de Empleado.",
+
+            codeChallenge: `class Gerente extends Empleado {
+
+}`
+        },
+
+        {
+            instruction: "Usa super() dentro del constructor de una subclase.",
+
+            codeChallenge: `super();`
+        }
+
+    ]
+},
+
+{
     id: 7,
-    title: "7. Constructores",
-    concept: "Los constructores son métodos especiales invocados en el momento de la creación de un objeto. Su función principal es inicializar los atributos del objeto y preparar su estado inicial. No tienen tipo de retorno y deben llamarse exactamente igual que la clase. Si no defines un constructor, Java crea uno vacío por defecto. Sin embargo, al definir uno personalizado, el de por defecto desaparece, obligándote a gestionar la inicialización explícitamente.",
-    examples: [{
-        desc: "Constructor con parámetros:",
-        code: "public Persona(String nombre) {\n    this.nombre = nombre;\n}"
-    }, {
-        desc: "Sobrecarga de constructores:",
-        code: "public Persona() { this.nombre = \"Anonimo\"; }\npublic Persona(String n) { ... }"
-    }],
-    exercises: [{
-        instruction: "Crea un constructor para la clase 'Libro' que reciba el título.",
-        codeChallenge: "public Libro(String t) { ... }"
-    }, {
-        instruction: "Añade un constructor vacío que asigne valores por defecto.",
-        codeChallenge: "public Libro() { ... }"
-    }]
-}, {
+
+    title: "Polimorfismo y sobreescritura de métodos",
+
+    concept: "El polimorfismo permite que un mismo método tenga diferentes comportamientos según el objeto que lo implemente. La sobrescritura ocurre cuando una subclase redefine un método heredado utilizando @Override.",
+
+    examples: [
+
+        {
+            desc: "Referencia polimórfica:",
+
+            code: `Animal a = new Perro();
+
+a.hacerSonido();`
+        },
+
+        {
+            desc: "Sobrescritura de método:",
+
+            code: `@Override
+
+void mover(){
+
+    System.out.println("Nadando");
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Sobrescribe el método dibujar() en una clase Circulo.",
+
+            codeChallenge: `@Override
+
+void dibujar(){
+
+}`
+        },
+
+        {
+            instruction: "Crea una lista de objetos Forma.",
+
+            codeChallenge: `List<Forma> lista = new ArrayList<>();`
+        }
+
+    ]
+},
+
+{
     id: 8,
-    title: "8. Palabra clave 'this'",
-    concept: "La palabra clave 'this' es una referencia al objeto actual que se está ejecutando. Se utiliza principalmente para resolver ambigüedades entre los nombres de los atributos de la clase y los parámetros de los métodos. También es fundamental para la invocación encadenada de constructores (this()) y para pasar la instancia actual como argumento a otros métodos o constructores externos.",
-    examples: [{
-        desc: "Resolución de ambigüedad de nombres:",
-        code: "void setEdad(int edad) {\n    this.edad = edad; // this.edad es el atributo\n}"
-    }, {
-        desc: "Llamada entre constructores de la misma clase:",
-        code: "public Persona() {\n    this(\"Sin nombre\", 0); // Llama al otro constructor\n}"
-    }],
-    exercises: [{
-        instruction: "Usa 'this' para asignar un parámetro 'marca' al atributo 'marca'.",
-        codeChallenge: "void updateMarca(String marca) { ... }"
-    }, {
-        instruction: "Usa 'this()' para que un constructor sin parámetros llame a uno con parámetros.",
-        codeChallenge: "public Coche() { ... }"
-    }]
-}, {
+
+    title: "Clases abstractas e interfaces",
+
+    concept: "Las clases abstractas representan modelos incompletos que no pueden instanciarse directamente. Las interfaces definen contratos de comportamiento que las clases deben implementar.",
+
+    examples: [
+
+        {
+            desc: "Clase abstracta:",
+
+            code: `abstract class Figura {
+
+    abstract double area();
+
+}`
+        },
+
+        {
+            desc: "Implementación de interfaz:",
+
+            code: `interface Volador {
+
+    void volar();
+
+}`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea una clase abstracta llamada Instrumento.",
+
+            codeChallenge: `abstract class Instrumento {
+
+}`
+        },
+
+        {
+            instruction: "Haz que la clase Delfin implemente una interfaz Nadador.",
+
+            codeChallenge: `class Delfin implements Nadador {
+
+}`
+        }
+
+    ]
+},
+
+{
     id: 9,
-    title: "9. Palabra clave 'super'",
-    concept: "'super' se utiliza en las subclases para referirse directamente a los miembros (atributos o métodos) de la superclase inmediata. Su uso más común es en los constructores de las subclases para invocar al constructor del padre (super()), lo cual debe ser siempre la primera instrucción. También es vital cuando una subclase sobrescribe un método pero aún necesita ejecutar la lógica original definida en el padre.",
-    examples: [{
-        desc: "Invocación al constructor del padre:",
-        code: "public Perro() {\n    super(\"Canino\"); // Llama al constructor de Animal\n}"
-    }, {
-        desc: "Llamada a método sobrescrito:",
-        code: "void comer() {\n    super.comer(); // Come como animal\n    System.out.println(\"Perro come croquetas\");\n}"
-    }],
-    exercises: [{
-        instruction: "Llama al constructor del padre desde la clase 'Moto'.",
-        codeChallenge: "public Moto() { super(); }"
-    }, {
-        instruction: "Accede al método 'apagar()' de la clase padre usando 'super'.",
-        codeChallenge: "void apagar() { super.apagar(); }"
-    }]
-}, {
+
+    title: "Composición y modularización del código",
+
+    concept: "La composición consiste en construir objetos complejos usando otros objetos como componentes internos. La modularización permite dividir el sistema en paquetes y módulos para facilitar el mantenimiento y la reutilización.",
+
+    examples: [
+
+        {
+            desc: "Composición entre clases:",
+
+            code: `class Computador {
+
+    Procesador cpu;
+
+}`
+        },
+
+        {
+            desc: "Organización en paquetes:",
+
+            code: `package servicios.usuario;`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea una composición entre Casa y Habitacion.",
+
+            codeChallenge: `class Casa {
+
+}`
+        },
+
+        {
+            instruction: "Organiza clases en paquetes diferentes.",
+
+            codeChallenge: `package modelo;`
+        }
+
+    ]
+},
+
+{
     id: 10,
-    title: "10. Modificadores de Acceso",
-    concept: "Los modificadores definen la visibilidad y el alcance de las clases y sus miembros. 'public' permite acceso total; 'private' restringe el acceso solo a la propia clase; 'protected' permite acceso a la clase, a sus herederos y a clases del mismo paquete; y el acceso por defecto (default) limita la visibilidad solo al paquete actual. Elegir el modificador correcto es esencial para aplicar el encapsulamiento y proteger la arquitectura del software.",
-    examples: [{
-        desc: "Diferencia entre public y private:",
-        code: "public String nombre; // Visible en todo el proyecto\nprivate String id; // Solo visible en esta clase"
-    }, {
-        desc: "Uso de protected para la herencia:",
-        code: "protected double velocidadMax; // Visible para hijos"
-    }],
-    exercises: [{
-        instruction: "Declara un método privado llamado 'logInterno()'.",
-        codeChallenge: "private void logInterno() { ... }"
-    }, {
-        instruction: "Crea una variable protegida 'puntosVida' para una clase Guerrero.",
-        codeChallenge: "protected int puntosVida;"
-    }]
-}, {
+
+    title: "Modularización avanzada y arquitectura",
+
+    concept: "La modularización avanzada busca dividir aplicaciones en componentes independientes y reutilizables. Esto mejora la organización del código y facilita el mantenimiento de sistemas grandes.",
+
+    examples: [
+
+        {
+            desc: "Separación por capas:",
+
+            code: `controller/
+service/
+model/`
+        },
+
+        {
+            desc: "Uso de paquetes organizados:",
+
+            code: `package controller;`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Organiza un proyecto usando paquetes model y service.",
+
+            codeChallenge: `package model;`
+        },
+
+        {
+            instruction: "Crea una arquitectura básica por capas.",
+
+            codeChallenge: `// Código aquí`
+        }
+
+    ]
+},
+
+{
     id: 11,
-    title: "11. Miembros Estáticos (static)",
-    concept: "El modificador 'static' indica que un miembro pertenece a la Clase en sí y no a las instancias individuales. Las variables estáticas son compartidas por todos los objetos de esa clase (solo existe una copia en memoria). Los métodos estáticos pueden invocarse sin crear un objeto (como Math.sqrt()). Son ideales para constantes globales, contadores de objetos o funciones de utilidad que no dependen del estado de un objeto particular.",
-    examples: [{
-        desc: "Variable compartida entre instancias:",
-        code: "static int totalObjetos = 0;\npublic MiClase() { totalObjetos++; }"
-    }, {
-        desc: "Método de utilidad estático:",
-        code: "public static int sumar(int a, int b) { return a + b; }"
-    }],
-    exercises: [{
-        instruction: "Crea una constante estática PI en una clase 'Calculos'.",
-        codeChallenge: "public static final double PI = 3.1416;"
-    }, {
-        instruction: "Define un método estático que convierta de Celsius a Fahrenheit.",
-        codeChallenge: "public static double toF(double c) { ... }"
-    }]
-}, {
+
+    title: "Manejo de errores y excepciones",
+
+    concept: "Las excepciones permiten controlar errores durante la ejecución del programa. Java utiliza try, catch, finally, throw y throws para manejar situaciones inesperadas y evitar que el programa termine abruptamente.",
+
+    examples: [
+
+        {
+            desc: "Uso de try y catch:",
+
+            code: `try {
+
+    int r = 10/0;
+
+} catch(Exception e){
+
+    System.out.println("Error");
+
+}`
+        },
+
+        {
+            desc: "Lanzamiento de excepciones:",
+
+            code: `throw new IllegalArgumentException();`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Captura un error de división entre cero.",
+
+            codeChallenge: `try {
+
+}`
+        },
+
+        {
+            instruction: "Crea una excepción personalizada.",
+
+            codeChallenge: `class MiExcepcion extends Exception {
+
+}`
+        }
+
+    ]
+},
+
+{
     id: 12,
-    title: "12. Palabra clave 'final'",
-    concept: "'final' se utiliza para imponer restricciones de inmutabilidad. Una variable final se convierte en una constante; un método final no puede ser sobrescrito por ninguna subclase, garantizando un comportamiento crítico; y una clase final no puede ser heredada (como la clase String de Java). Es una herramienta poderosa para garantizar la seguridad del código y el diseño de APIs robustas.",
-    examples: [{
-        desc: "Definición de constante inmutable:",
-        code: "final int MAX_USUARIOS = 500;"
-    }, {
-        desc: "Clase que impide la extensión:",
-        code: "public final class Segura { ... }"
-    }],
-    exercises: [{
-        instruction: "Crea una variable 'final' para la gravedad terrestre (9.8).",
-        codeChallenge: "final double GRAVEDAD = 9.8;"
-    }, {
-        instruction: "Intenta declarar un método final 'validar()' en una clase Base.",
-        codeChallenge: "public final void validar() { ... }"
-    }]
-}, {
+
+    title: "Colecciones y estructuras de datos",
+
+    concept: "Las colecciones permiten almacenar y manipular grupos de objetos dinámicamente. Java proporciona interfaces como List, Set y Map, junto con implementaciones como ArrayList, HashSet y HashMap.",
+
+    examples: [
+
+        {
+            desc: "Uso de ArrayList:",
+
+            code: `List<String> nombres = new ArrayList<>();
+
+nombres.add("Ana");`
+        },
+
+        {
+            desc: "Uso de HashMap:",
+
+            code: `Map<Integer, String> mapa = new HashMap<>();`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea un ArrayList de objetos Estudiante.",
+
+            codeChallenge: `ArrayList<Estudiante> lista = new ArrayList<>();`
+        },
+
+        {
+            instruction: "Usa un HashSet para evitar duplicados.",
+
+            codeChallenge: `HashSet<String> datos = new HashSet<>();`
+        }
+
+    ]
+},
+
+{
     id: 13,
-    title: "13. Sobrecarga de Métodos",
-    concept: "La sobrecarga (Overloading) permite definir múltiples métodos con el mismo nombre dentro de una clase, siempre que sus firmas sean diferentes (distinto número o tipo de parámetros). Es un ejemplo de polimorfismo en tiempo de compilación. Facilita la legibilidad del código al permitir que una misma acción se realice con diferentes tipos de entrada, como un método 'imprimir' que acepte tanto un String como un entero.",
-    examples: [{
-        desc: "Sobrecarga por tipo de parámetro:",
-        code: "void mostrar(int i) { ... }\nvoid mostrar(String s) { ... }"
-    }, {
-        desc: "Sobrecarga por cantidad de parámetros:",
-        code: "int area(int lado) { ... }\nint area(int b, int h) { ... }"
-    }],
-    exercises: [{
-        instruction: "Sobrecarga el método 'buscar' para String y para int.",
-        codeChallenge: "void buscar(String n) { }\nvoid buscar(int id) { }"
-    }, {
-        instruction: "Crea dos versiones de un constructor usando sobrecarga.",
-        codeChallenge: "public User() { }\npublic User(String n) { }"
-    }]
-}, {
+
+    title: "Lectura y escritura de archivos en Java",
+
+    concept: "Java permite trabajar con archivos de texto utilizando clases como FileWriter, BufferedReader y Scanner. Esto facilita guardar y recuperar información desde archivos .txt y .csv.",
+
+    examples: [
+
+        {
+            desc: "Escritura de archivo TXT:",
+
+            code: `FileWriter fw = new FileWriter("datos.txt");
+
+fw.write("Hola");`
+        },
+
+        {
+            desc: "Lectura de archivo:",
+
+            code: `BufferedReader br = new BufferedReader(new FileReader("datos.txt"));`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Crea un programa que escriba nombres en un archivo.",
+
+            codeChallenge: `FileWriter fw;`
+        },
+
+        {
+            instruction: "Lee un archivo CSV línea por línea.",
+
+            codeChallenge: `BufferedReader br;`
+        }
+
+    ]
+},
+
+{
     id: 14,
-    title: "14. Colecciones y POO",
-    concept: "El Java Collections Framework es el conjunto de interfaces y clases que permiten manejar grupos de objetos. Utiliza intensamente el polimorfismo y los genéricos (`<T>`). Interfaces como List, Set y Map definen comportamientos para listas ordenadas, conjuntos de elementos únicos y mapas de clave-valor. Integrar colecciones con POO permite gestionar dinámicamente objetos en memoria, realizando búsquedas, ordenamientos y filtrados de forma profesional.",
-    examples: [{
-        desc: "Uso de ArrayList con polimorfismo:",
-        code: "List<Persona> lista = new ArrayList<>();\nlista.add(new Persona(\"Ana\"));"
-    }, {
-        desc: "Iteración sobre colección de objetos:",
-        code: "for(Persona p : lista) {\n    p.saludar();\n}"
-    }],
-    exercises: [{
-        instruction: "Declara un ArrayList que solo acepte objetos de tipo 'Coche'.",
-        codeChallenge: "ArrayList<Coche> garaje = new ArrayList<>();"
-    }, {
-        instruction: "Usa un bucle para imprimir el nombre de todos los objetos en una lista.",
-        codeChallenge: "for(Objeto o : lista) { ... }"
-    }]
+
+    title: "Buenas prácticas de programación en Java y refactorización",
+
+    concept: "Las buenas prácticas permiten escribir código limpio, mantenible y reutilizable. Herramientas como Checkstyle y SonarLint ayudan a detectar errores, duplicidad y malas prácticas durante el desarrollo.",
+
+    examples: [
+
+        {
+            desc: "Método bien estructurado:",
+
+            code: `public double calcularTotal(){
+
+    return subtotal + impuestos;
+
+}`
+        },
+
+        {
+            desc: "Refactorización básica:",
+
+            code: `extraerMetodo();`
+        }
+
+    ],
+
+    exercises: [
+
+        {
+            instruction: "Refactoriza un método muy largo dividiéndolo en métodos pequeños.",
+
+            codeChallenge: `// Código aquí`
+        },
+
+        {
+            instruction: "Aplica nombres descriptivos a variables y métodos.",
+
+            codeChallenge: `// Código aquí`
+        }
+
+    ]
 }];
 
 // Función sugerida para renderizar este nuevo contenido extenso
