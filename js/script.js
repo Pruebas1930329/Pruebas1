@@ -217,22 +217,7 @@ public String toString(){
 
     title: "Pendiente: tema 5",
 
-    concept: "Este tema no aparece especificado dentro de las entradas suministradas por el curso. Se deja reservado para futuras actualizaciones o contenidos adicionales definidos por el docente.",
-
-    examples: [
-
-        {
-            desc: "Tema pendiente de definición.",
-
-            code: `// Sin contenido disponible`
-        },
-
-        {
-            desc: "Espacio reservado para ejemplos futuros.",
-
-            code: `// Pendiente`
-        }
-      ]
+    concept: "Este tema no aparece especificado dentro de las entradas suministradas por el curso. Se deja reservado para futuras actualizaciones o contenidos adicionales definidos por el docente."
 },
 
 {
@@ -442,43 +427,9 @@ void dibujar(){
 {
     id: 10,
 
-    title: "Modularización avanzada y arquitectura",
+    title: "Pendiente: tema 10",
 
-    concept: "La modularización avanzada busca dividir aplicaciones en componentes independientes y reutilizables. Esto mejora la organización del código y facilita el mantenimiento de sistemas grandes.",
-
-    examples: [
-
-        {
-            desc: "Separación por capas:",
-
-            code: `controller/
-service/
-model/`
-        },
-
-        {
-            desc: "Uso de paquetes organizados:",
-
-            code: `package controller;`
-        }
-
-    ],
-
-    exercises: [
-
-        {
-            instruction: "Organiza un proyecto usando paquetes model y service.",
-
-            codeChallenge: `package model;`
-        },
-
-        {
-            instruction: "Crea una arquitectura básica por capas.",
-
-            codeChallenge: `// Código aquí`
-        }
-
-    ]
+    concept: "Este tema no se encuentra visible dentro de las entradas suministradas durante el semestre. Se mantiene como espacio reservado para contenido futuro o complementario."
 },
 
 {
