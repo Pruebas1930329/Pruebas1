@@ -297,5 +297,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof renderTopics === 'function') {
         renderTopics();
     }
-}
-);
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('exercise-toggle')) {
+        const content = e.target.nextElementSibling;
+        content.classList.toggle('active');
+    }
+});
