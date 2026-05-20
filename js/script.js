@@ -266,16 +266,16 @@ function renderTopics() {
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 ${topic.examples.map(ex => `
                     <div class="bg-black/40 rounded-xl p-5 border border-cyber-800/50">
-                        <h4 class="text-cyber-400 font-semibold mb-3">Ejemplo: ${ex.desc}</h4>
+                        <h3 class="text-cyber-400 font-semibold mb-3">Ejemplo: ${ex.desc}</h3>
                         <pre class="bg-gray-950 p-4 rounded text-sm overflow-x-auto text-green-400 font-mono"><code>${ex.code}</code></pre>
                     </div>
                 `).join('')}
             </div>
 
             <div class="bg-cyber-500/5 rounded-xl p-6 border border-cyber-500/20">
-                <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                <h3 class="text-white font-bold mb-4 flex items-center gap-2">
                     <i data-lucide="edit-3" class="w-5 h-5 text-cyber-500"></i> Ejercicios de Codificación
-                </h4>
+                </h3>
                 <div class="space-y-4">
                     ${topic.exercises.map( (exe, idx) => `
                         <div class="bg-cyber-950/50 p-4 rounded-lg">
