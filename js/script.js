@@ -733,12 +733,33 @@ function renderTopics() {
 document.addEventListener('DOMContentLoaded', () => {
     renderTopics();
 });
+// Función para generar un bip retro estilo terminal
+function playBip() {
+    const context = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = context.createOscillator();
+    const gainNode = context.createGain();
 
-// Evento para plegar/desplegar
+    oscillator.type = 'square'; // Sonido tipo 8-bits
+    oscillator.frequency.setValueAtTime(800, context.currentTime); // Frecuencia del bip
+    
+    gainNode.gain.setValueAtTime(0.1, context.currentTime); // Volumen bajo
+    gainNode.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.1);
+
+    oscillator.connect(gainNode);
+    gainNode.connect(context.destination);
+
+    oscillator.start();
+    oscillator.stop(context.currentTime + 0.1);
+}
+
+// Evento de clic actualizado
 document.addEventListener('click', (e) => {
-    // Buscamos el botón o cualquier elemento dentro de él (como el icono)
     const btn = e.target.closest('.exercise-toggle');
     if (btn) {
+        // Reproducir sonido
+        playBip();
+        
+        // Alternar contenido
         const content = btn.nextElementSibling;
         content.classList.toggle('active');
     }
