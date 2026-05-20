@@ -61,13 +61,6 @@ pre, code {
     overflow-x: auto;
 }
 
-/* Animación de cursor parpadeante */
-.cursor {
-    animation: blink 1s infinite;
-}
-
-@keyframes blink { 50% { opacity: 0; } }
-
 /* Ajuste para que el contenido no flote */
 main {
     position: relative;
@@ -120,4 +113,38 @@ h1.hero-title {
 
 .exercise-content.active {
     display: block;
+}
+/* Centrar todo el contenido en el contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos horizontalmente */
+}
+
+/* Estilos para el Header */
+header {
+    text-align: center; /* Centra el texto del título y subtítulo */
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* Asegurar que el título principal se vea bien centrado */
+#main-title {
+    display: inline-block;
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Estilo para el cursor parpadeante */
+.cursor {
+    font-size: 3rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
