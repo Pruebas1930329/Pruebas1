@@ -10,7 +10,7 @@
 - JavaScript (ES6+): Manipulación del DOM, lógica de filtrado y AudioContext.
 - Assets: Google Fonts (VT323), Lucide Icons y Giphy para el fondo dinámico.
 ## Cómo usarlo 
-1. Clona el repositorio: git clone https://github.com/tu-usuario/Pruebas1.git
+1. Clona el repositorio
 2. Abre index.html en tu navegador.
 ## Estructura
 /css: Estilos.
