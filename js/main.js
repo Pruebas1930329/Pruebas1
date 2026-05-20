@@ -12,9 +12,14 @@ link.href = `#tema-${topic.id}`;
 link.className = "nav-link";
 
 link.innerHTML = `
-${topic.id}. ${topic.title}
-`;
 
+<div class="nav-number">
+${topic.id}
+</div>
+<span>
+${topic.title}
+</span>
+`;
 navList.appendChild(link);
 
 });
