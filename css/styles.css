@@ -6,12 +6,16 @@
 }
 
 body {
-    background-color: var(--bg-black) !important;
+    /* Reemplaza 'tu-imagen.jpg' por la URL de tu imagen */
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                url('https://static.vecteezy.com/system/resources/thumbnails/001/806/688/original/binary-code-background-free-video.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--neon-green) !important;
     font-family: 'VT323', monospace !important;
     margin: 0;
     line-height: 1.4;
 }
+
 
 /* El efecto de "letras sueltas" (Partículas Matrix) */
 #particles {
